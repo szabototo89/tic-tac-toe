@@ -1,15 +1,20 @@
 import React from 'react';
-import GameTable from '../gameTable';
+import GameTable from '../game/gameTable';
+import NewGame from '../game/newGame/container';
+import GameSummary from '../game/gameSummary';
 import Header from './header';
 
-import { Provider } from 'react-redux';
-import applicationStore from '../stores/applicationStore';
+const Application = (props) => {
+  const { fields, players, isNewGameVisible, isGameOver } = props;
+  const { onNewGameStart, onGameFieldSelect, onNewGameToggle } = props;
 
-const Application = ({ fields, onNewGameStart }) => {
   return <div className="application__container">
-    <Header onNewGameStart={onNewGameStart} />
-
-    <GameTable fields={fields} />
+    <Header isNewGameVisible={isNewGameVisible} 
+            players={players} 
+            onNewGameToggle={onNewGameToggle} />
+    {isNewGameVisible && <NewGame onNewGameStart={onNewGameStart} />}
+    {!isNewGameVisible && <GameTable fields={fields} onGameFieldSelect={onGameFieldSelect} />}
+    {isGameOver && <GameSummary winner="Player 1" />}
   </div>;
 };
 

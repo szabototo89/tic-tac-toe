@@ -1,14 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
 body {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: sans-serif;
+  font-family: 'Indie Flower', cursive;
+  color: white;
+  height: 100vh;
+  position: relative;
+  background-color: #56514B;
 }
 
 html {
   box-sizing: border-box;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
 *, *::after, *::before {
   box-sizing: inherit;
 }
+
+#root {
+  height: 100%;
+}
+
+.application__container {
+  height: 100%;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  -font-family: 'Sue Ellen Francisco', cursive;
+  font-family: 'Indie Flower', cursive;
+}
+
+/* http://jsbin.com/qikotaruxa/edit?html,css,output */
+/* http://www.fontspace.com/vvb-designs/francis-nico-v-02 */

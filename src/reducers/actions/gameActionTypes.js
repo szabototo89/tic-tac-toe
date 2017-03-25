@@ -1,1 +1,3 @@
 export const NEW_GAME = 'NEW_GAME';
+export const SELECT_GAME_FIELD = 'SELECT_GAME_FIELD';
+export const CHECK_GAME_OVER = 'CHECK_GAME_OVER';

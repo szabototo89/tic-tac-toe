@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+.game-field {
+  font-size: 8rem;
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-field--symbol-x {
+  color: #f9e27a;
+}
+
+.game-field--symbol-o {
+  color: #36b0df;
+}

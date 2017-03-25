@@ -1,9 +1,25 @@
 export default {
   game: {
-    fields: [
-      { x: 0, y: 0, value: null },
-      { x: 0, y: 1, value: 1 },
-      { x: 0, y: 2, value: null },
-    ]
+    currentPlayer: 0,
+    players: [0, 1],
+    fields: null
+  },
+  players: ['Player 1', 'Computer'],
+  // players: {
+  //   0: {
+  //     id: 0, 
+  //     name: 'Fruzsi',
+  //     symbol: 'X'
+  //   },
+  //   1: {
+  //     id: 1,
+  //     name: 'Computer 1',
+  //     symbol: 'Y',
+  //     isComputer: true
+  //   }
+  // },
+  newGame: {
+    isVisible: false,
+    players: []
   }
 };
