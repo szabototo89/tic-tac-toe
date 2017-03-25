@@ -1,21 +1,5 @@
 import React from 'react';
 
-/*const TextBox = ({ label, onChange, children, ...rest }) => {
-  const handleChange = (ev) => {
-    return onChange && onChange(ev.target.value);
-  }
-
-  return <label className="textbox__label">
-    {label}
-    <input type="text" 
-           className="textbox__input" 
-           {...rest}
-           onChange={handleChange} >
-      {children}
-    </input>
-  </label>;
-}*/
-
 class TextBox extends React.Component {
   handleChange = (ev) => {
     const { onChange, validate = () => true } = this.props;

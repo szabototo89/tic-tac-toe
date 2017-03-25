@@ -1,28 +1,29 @@
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Application from './index';
 
-import { getGameFields, getPlayerNames, isNewGameVisible, isGameOver } from '../reducers/rootReducer';
-import { startNewGame, selectGameField, stepGame } from '../reducers/actions/gameActions';
-import { toggleNewGameWindow } from '../reducers/actions/newGameActions';
+import { getNewGameDialog, getGame } from '../reducers/appReducer';
+
+import { getPlayers, getFields, getCurrentPlayer } from '../reducers/game/reducer';
+import { stepGame, nextRound } from '../reducers/game/actions';
+
+import { isNewGameDialogVisible } from '../reducers/newGameDialog/reducer';
+import { toggleNewGameDialog } from '../reducers/newGameDialog/actions';
 
 const mapStateToProps = (state) => ({
-  fields: getGameFields(state),
-  players: getPlayerNames(state),
-  isNewGameVisible: isNewGameVisible(state),
-  isGameOver: isGameOver(state)
+  fields: getFields(getGame(state)),
+  currentPlayer: getCurrentPlayer(getGame(state)),
+  players: getPlayers(getGame(state)),
+  isNewGameDialogVisible: isNewGameDialogVisible(getNewGameDialog(state)),
 });
 
-const mapDispatchToProps = (dispatch, { isGameOver }) => ({
-  onNewGameStart(players) { 
-    dispatch(startNewGame(3, players));
+const mapDispatchToProps = (dispatch) => ({
+  onGameFieldSelect(position) {
+    dispatch(nextRound(position));
   },
 
-  onGameFieldSelect(field) {
-    !isGameOver && dispatch(stepGame(field));
-  },
-
-  onNewGameToggle() {
-    dispatch(toggleNewGameWindow());
+  onNewGameDialogToggle() {
+    dispatch(toggleNewGameDialog());
   }
 })
 

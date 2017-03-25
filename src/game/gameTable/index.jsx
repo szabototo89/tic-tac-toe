@@ -4,10 +4,16 @@ import { isEmpty } from '../../utils/arrays';
 import './style.css';
 
 const GameTable = ({ fields = [], onGameFieldSelect }) => {
+  const handleGameFieldSelect = (position) => () => {
+    return onGameFieldSelect && onGameFieldSelect(position);
+  }
+
   return <div className="game-table__container">
-    {!isEmpty(fields) && <div className="game-table__game-fields">
+    {fields && !isEmpty(fields) && <div className="game-table__game-fields">
       {fields.map((field, index) => 
-        <GameField key={`${field.x}-${field.y}`} field={field} onSelect={onGameFieldSelect} />)}
+        <GameField key={`${index} - ${field && field.owner}`} 
+                   field={field} 
+                   onSelect={handleGameFieldSelect(index)} />)}
     </div>}
   </div>;
 };

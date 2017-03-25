@@ -11,11 +11,8 @@ const getClassName = (owner) => owner !== null
 const GameField = ({ field, onSelect }) => {
   const { owner } = field;
 
-  const handleGameFieldSelect = () => {
-    return !owner && onSelect && onSelect(field);
-  };
-
-  return <div className={`game-field ${getClassName(owner)}`} onClick={handleGameFieldSelect}>
+  return <div className={`game-field ${getClassName(owner)}`} 
+              onClick={onSelect}>
     {getSymbol(owner)}
   </div>;
 };

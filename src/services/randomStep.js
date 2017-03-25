@@ -1,12 +1,13 @@
-const randomStep = function(isEmptyField) {
-  return (fields) => {
-    const emptyFields = fields.filter(isEmptyField);
+const randomStep = (fields) => {
+  const isFieldEmpty = ({ field }) => field && field.owner === null;
+  const emptyFields = fields.map((field, index) => ({ field, index }))
+                            .filter(isFieldEmpty)
+                            .map(({ index }) => index);
 
-    if (!emptyFields.length) return null;
+  if (emptyFields.length === 0) return null;
 
-    const randomIndex = Math.round(Math.random() * emptyFields.length);
-    return emptyFields[randomIndex];
-  };
+  const index = Math.floor(Math.random() * emptyFields.length);
+  return emptyFields[index];
 };
 
 export default randomStep;
