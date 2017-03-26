@@ -4,22 +4,14 @@ import { getFields, getCurrentPlayer, hasWinner } from '../game/reducer';
 
 export const STEP_GAME = 'STEP_GAME';
 
-export const stepGame = (position, currentPlayer) => ({
-  type: STEP_GAME,
-  payload: { position, currentPlayer }
-});
+export const stepGame = (position, currentPlayer) => {
+  return {
+    type: STEP_GAME,
+    payload: { position, currentPlayer }
+  };
+};
 
-const delay = (duration) => new Promise(resolve => {
-  setTimeout(resolve, duration);
-});
-
-export const nextRound = (position, player) => async (dispatch, getState) => {
-  if (player !== getCurrentPlayer(getGame(getState()))) {
-    return Promise.resolve();
-  }
-
-  dispatch(stepGame(position, player));
-
+export const stepGameAsComputer = () => async (dispatch, getState) => {
   const nextState     = getState(),
         nextGame      = getGame(nextState),
         nextFields    = getFields(nextGame),
@@ -28,7 +20,20 @@ export const nextRound = (position, player) => async (dispatch, getState) => {
 
   if (hasGameWinner) return Promise.resolve();
 
-  await delay(500);
   const computerPosition = randomStep(nextFields);
   computerPosition !== null && dispatch(stepGame(computerPosition, nextPlayer));
+}
+
+const delay = (duration) => new Promise(resolve => {
+  setTimeout(resolve, duration);
+});
+
+export const nextRound = (position, player) => async (dispatch, getState) => {
+  if (getCurrentPlayer(getGame(getState())) !== 0) {
+    return Promise.resolve();
+  }
+
+  dispatch(stepGame(position, player));
+  await delay(500);
+  await dispatch(stepGameAsComputer(500));
 };

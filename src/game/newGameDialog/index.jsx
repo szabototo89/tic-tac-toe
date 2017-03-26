@@ -1,11 +1,14 @@
 import React from 'react';
 import TextBox from '../../common/textBox';
 import Button from '../../common/button';
+import className from '../../utils/className';
 import './style.css';
+
+const isPlayerNameValid = (playerName) => !!playerName;
 
 const NewGame = ({ onNewGameStart, onPlayerNameChange, playerName }) => {
   const handleNewGameStart = () => {
-    onNewGameStart && onNewGameStart(playerName);
+    isPlayerNameValid(playerName) && onNewGameStart && onNewGameStart(playerName);
   };
 
   const handlePlayerNameChange = (playerName) => {
@@ -19,10 +22,10 @@ const NewGame = ({ onNewGameStart, onPlayerNameChange, playerName }) => {
              onChange={handlePlayerNameChange}
              value={playerName} />
 
-    <Button className="new-game__start-button" 
-            onClick={handleNewGameStart}>
+    {<Button className={`new-game__start-button ${className('new-game__start-button--visible', isPlayerNameValid(playerName))}`} 
+             onClick={handleNewGameStart}>
       Start
-    </Button>
+    </Button>}
   </div>;
 };
 

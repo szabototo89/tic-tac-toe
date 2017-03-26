@@ -29,4 +29,10 @@
 
 .new-game__start-button {
   margin-top: 40px;
+  opacity: 0;
+  transition: opacity 0.33s ease-in-out;
+}
+
+.new-game__start-button--visible {
+  opacity: 1;
 }

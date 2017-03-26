@@ -6,9 +6,23 @@
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   height: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .game-summary__winner {
   font-size: 14rem;
   display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .game-summary {
+    font-size: 3rem;
+  }
+
+  .game-summary__winner {
+    font-size: 5rem;
+  }
 }

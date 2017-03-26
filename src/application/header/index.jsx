@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from '../../common/button';
-import className from '../../utils/className';
 import './style.css'; 
 
 const Header = ({ isNewGameDialogVisible, onNewGameDialogToggle }) => {

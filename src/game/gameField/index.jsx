@@ -4,17 +4,20 @@ import './style.css';
 
 const symbols = ['X', 'O'];
 
-const getSymbol = (owner) => symbols[owner];
-const getClassName = (owner) => owner !== null 
-  ? `game-field--symbol-${getSymbol(owner).toLowerCase()}` 
+const isEmptyField = ({ owner }) => owner === null;
+const getSymbol = ({ owner }) => symbols[owner];
+const getClassName = (field) => !isEmptyField(field) 
+  ? `game-field--symbol-${getSymbol(field).toLowerCase()}` 
   : '';
 
 const GameField = ({ field, isActive, onSelect }) => {
-  const { owner } = field;
+  const handleSelect = () => {
+    isEmptyField(field) && onSelect && onSelect();
+  };
 
-  return <div className={`game-field ${getClassName(owner)} ${className('game-field--selected', isActive)}`} 
-              onClick={onSelect}>
-    {getSymbol(owner)}
+  return <div className={`game-field ${getClassName(field)} ${className('game-field--selected', isActive)}`} 
+              onClick={handleSelect}>
+    {getSymbol(field)}
   </div>;
 };
 
