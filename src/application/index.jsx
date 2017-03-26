@@ -3,19 +3,32 @@ import GameTable from '../game/gameTable';
 import NewGame from '../game/newGameDialog/container';
 import GameSummary from '../game/gameSummary';
 import Header from './header';
+import './style.css';
 
 const Application = (props) => {
-  const { fields, currentPlayer, players, isNewGameDialogVisible, isGameOver } = props;
+  const { fields, currentPlayer, players, isNewGameDialogVisible } = props;
+  const { winner, winnerFields, isTie } = props;
   const { onNewGameStart, onGameFieldSelect, onNewGameDialogToggle } = props;
+
+  const hasWinner = winner !== null || isTie;
 
   return <div className="application__container">
     <Header isNewGameDialogVisible={isNewGameDialogVisible} 
-            players={players} 
-            currentPlayer={currentPlayer}
             onNewGameDialogToggle={onNewGameDialogToggle} />
-    {isNewGameDialogVisible && <NewGame onNewGameStart={onNewGameStart} />}
-    {!isNewGameDialogVisible && <GameTable fields={fields} onGameFieldSelect={onGameFieldSelect} />}
-    {/*{isGameOver && <GameSummary winner="Player 1" />}*/}
+    <div className="application__content">
+      {isNewGameDialogVisible && 
+        <NewGame onNewGameStart={onNewGameStart} />}
+
+      {!isNewGameDialogVisible && 
+        <GameTable fields={fields} 
+                   winnerFields={winnerFields}
+                   players={players} 
+                   currentPlayer={currentPlayer} 
+                   onGameFieldSelect={onGameFieldSelect} />}
+
+      {!isNewGameDialogVisible && hasWinner && 
+        <GameSummary winner={winner} isTie={isTie} />}
+    </div>
   </div>;
 };
 

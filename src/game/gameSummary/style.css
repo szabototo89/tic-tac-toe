@@ -1,0 +1,14 @@
+.game-summary {
+  font-size: 4rem;
+  text-align: center;
+
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 50%;
+}
+
+.game-summary__winner {
+  font-size: 14rem;
+  display: block;
+}

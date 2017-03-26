@@ -1,10 +1,12 @@
 .game-table__container {
   height: 100%;
+  width: 100%;
+  background-color: #56514B;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  background-color: #56514B;
+  flex-direction: column;
 }
 
 .game-table__game-fields {
@@ -24,4 +26,66 @@
   height: 150px;
   width: 150px;
   cursor: pointer;
+}
+
+.game-table__players {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px auto;
+  padding-top: 65px;
+  width: 30%;
+}
+
+.game-table__player {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  width: 75px;
+  height: 1rem;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.game-table__player--active {
+  transform: scale(1.25);
+}
+
+.game-table__player:nth-child(1)::after {
+  border-color: #F9E27A;
+}
+
+.game-table__player:nth-child(2)::after {
+  border-color: #36B0DF;
+}
+
+.game-table__player::after {
+  content: '';
+  position: absolute;
+  border: 4px black solid;
+  border-radius: 50%;
+  
+  background-image: url(https://instagram.ftsr1-1.fna.fbcdn.net/t51.2885-15/s750x750/sh0.08/e35/14711962_1793913734221898_244337270675472384_n.jpg);
+  background-size: contain;
+  
+  left: 0;
+  bottom: calc(1rem + 5px);
+  
+  height: 75px;
+  width: 75px;
+}
+
+@media screen and (max-width: 600px) {
+  .game-table__players {
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+  } 
+
+  .game-field {
+    height: 50px;
+    width: 50px;
+  }
 }

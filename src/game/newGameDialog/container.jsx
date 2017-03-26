@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 
 import NewGame from './index';
@@ -12,11 +11,11 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onPlayerNameChange(playerName) {
-    dispatch(changePlayerName(playerName));
+    return dispatch(changePlayerName(playerName));
   },
 
   onNewGameStart(playerName) {
-    dispatch(startNewGame(playerName));
+    return dispatch(startNewGame(playerName));
   }
 });
 

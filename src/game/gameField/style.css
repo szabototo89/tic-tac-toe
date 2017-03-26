@@ -8,10 +8,21 @@
   align-items: center;
 }
 
+.game-field.game-field--selected {
+  background-color: gray;
+  transform: scale(1.2);
+}
+
 .game-field--symbol-x {
   color: #f9e27a;
 }
 
 .game-field--symbol-o {
   color: #36b0df;
+}
+
+@media screen and (max-width: 600px) {
+  .game-field {
+    font-size: 2rem;
+  }
 }

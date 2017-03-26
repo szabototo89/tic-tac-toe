@@ -13,14 +13,14 @@ const NewGame = ({ onNewGameStart, onPlayerNameChange, playerName }) => {
   };
 
   return <div className="new-game__container">
-    <h1>Start game</h1>
-
-    <TextBox label="Player Name"
-             placeholder="Please specify a name here ..."
+    <TextBox placeholder="Please specify a name here ..."
+             label={<h1>Player Name</h1>}
+             className="new-game__player-name-textbox"
              onChange={handlePlayerNameChange}
              value={playerName} />
 
-    <Button onClick={handleNewGameStart}>
+    <Button className="new-game__start-button" 
+            onClick={handleNewGameStart}>
       Start
     </Button>
   </div>;

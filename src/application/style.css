@@ -1,0 +1,7 @@
+.application__content {
+  display: flex;
+  position: relative;
+  height: calc(100% - 50px);
+  justify-content: center;
+  align-items: center;
+}

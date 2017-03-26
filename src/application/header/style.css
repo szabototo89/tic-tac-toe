@@ -1,57 +1,15 @@
-.application-header__players {
-  display: flex;
-  justify-content: space-around;
-  margin: 0 auto;
-  margin-top: 40px;
-  padding-top: 65px;
-  width: 45%;
-}
-
-.application-header__player {
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  width: 75px;
-  height: 1rem;
-  color: white;
-  transition: all 0.2s ease-in-out;
-}
-
-.application-header__player--active {
-  transform: scale(1.25);
-}
-
-.application-header__player:nth-child(1)::after {
-  border-color: #F9E27A;
-}
-
-.application-header__player:nth-child(2)::after {
-  border-color: #36B0DF;
-}
-
-.application-header__player::after {
-  content: '';
-  position: absolute;
-  border: 4px black solid;
-  border-radius: 50%;
-  
-  background-image: url(https://instagram.ftsr1-1.fna.fbcdn.net/t51.2885-15/s750x750/sh0.08/e35/14711962_1793913734221898_244337270675472384_n.jpg);
-  background-size: contain;
-  
-  left: 0;
-  bottom: calc(1rem + 5px);
-  
-  height: 75px;
-  width: 75px;
-}
-
 .application-header__container {
   width: 100%;
+  display: flex;
+}
+
+.application-header__title {
+  padding: 0 20px;
 }
 
 .application-header__new-game {
-  display: block;
-  padding: 0px 20px;
+  display: block; 
+  padding: 0 20px;
  
   margin-left: auto;
   margin-right: 0px;

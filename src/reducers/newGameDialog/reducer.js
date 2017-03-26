@@ -24,15 +24,15 @@ const reducer = (state = initialState, action) => {
     }
 
     case START_NEW_GAME: {
-      const { playerName } = action.payload;
       return {
         ...state,
         isVisible: false
       };
     }
-  }
 
-  return state;
+    default:
+      return state;
+  }
 };
 
 export const isNewGameDialogVisible = selector('isVisible'); 

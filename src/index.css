@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco');
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Dosis:300');
 
 body {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Dosis', sans-serif;
   color: white;
   height: 100vh;
   position: relative;
@@ -40,8 +39,7 @@ button {
   color: white;
   font-size: 2rem;
   letter-spacing: 3px;
-  -font-family: 'Sue Ellen Francisco', cursive;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Dosis', sans-serif;
 }
 
 /* http://jsbin.com/qikotaruxa/edit?html,css,output */

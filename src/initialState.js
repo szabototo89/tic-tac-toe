@@ -3,7 +3,7 @@ export default ({
     fields: null,
     isGameOver: false,
     winner: null,
-    players: ['Player 1', 'Computer']
+    players: [] //['Player 1', 'Computer']
   },
 
   newGameDialog: {

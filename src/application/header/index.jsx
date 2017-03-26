@@ -3,18 +3,16 @@ import Button from '../../common/button';
 import className from '../../utils/className';
 import './style.css'; 
 
-const Header = ({ currentPlayer, isNewGameDialogVisible, onNewGameDialogToggle, players = [] }) => {
+const Header = ({ isNewGameDialogVisible, onNewGameDialogToggle }) => {
   return <div className="application-header__container">
+    <h1 className="application-header__title">
+      Tic Tac Toe
+    </h1>
+
     <Button className="application-header__new-game" 
             onClick={onNewGameDialogToggle}>
       {!isNewGameDialogVisible ? 'New Game' : 'Go back' }
     </Button>
-    <ul className="application-header__players">
-      {players.map((player, index) => 
-        <li key={index} className={`application-header__player ${className('application-header__player--active', index === currentPlayer)}`}>
-          {player}
-        </li>)}
-    </ul>
   </div>;
 }
   
